@@ -1,0 +1,72 @@
+{% extends 'base2.html' %}
+{% block body %}
+{% load static %}
+<style>
+	.page-banner {
+  background: rgba(0, 0, 0, 0) url("{% static 'img/background/shop-banner.jpg' %}") no-repeat center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  text-align: center;
+}
+</style>
+<!-- Page Banner Start -->
+<div class="page-banner padding-120 fix">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h1>All Products</h1>
+			</div>
+		</div>
+	</div>
+</div><!-- Page Banner End -->
+<!-- Shop Page Area Start -->
+<div class="shop-page page margin-70 fix">
+	<div class="container">
+		<div class="row">
+			<!-- Shop Tool Bar -->
+			<div class="col-xs-12 fix">
+				<div class="shpo-tool-bar fix">
+					<ul class=" float-left">
+						<li class=""><a href="{% url 'add_product' %}"><button class="btn btn-warning">Add Product</button></a></li>
+						</ul>
+
+				</div>
+			</div>
+			<div class="products-container tab-products-container tab-content">
+				<div class="tab-pane active" id="pro-grid">
+					<!-- Single Product -->
+					{% for i in  all_product %}
+					<div class="col-sm-4 col-md-3 col-xs-12">
+						<div class="single-product">
+							<div class="pro-image-hover">
+								<a href="shop.html#" class="pro-image">
+									<img class="primary" src="{{ i.img1.url }}" alt="" />
+								</a>
+                                    <div class="action-buttons">
+
+									<a href="{% url 'delete_pro' i.id %}" ><button class="act-btn add-cart"><i class="fa fa-trash"></i></button></a>
+
+								</div>
+							</div>
+							<div class="pro-bref fix">
+								<a class="pro-name" href="{% url 'product_detail' i.id %}">{{ i.name }}</a>
+								<div class="pro-ratting float-left">
+									<i class="fa fa-star on"></i>
+									<i class="fa fa-star on"></i>
+									<i class="fa fa-star on"></i>
+									<i class="fa fa-star on"></i>
+									<i class="fa fa-star"></i>
+								</div>
+								<div class="pro-price float-right"><span class="new">&#8377;{{ i.price }}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}<!-- Single Product -->
+				</div>
+
+		</div>
+	</div>
+</div>
+</div><!-- Shop page Area End -->
+{% endblock %}

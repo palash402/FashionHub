@@ -158,8 +158,8 @@ import requests
 import json
 
 
-headers = {"X-Api-Key": "36fedc81de23f05b7044ababd27d0555",
-           "X-Auth-Token": "6fb6c5ad36a9baa8a7c734141a9535f3"}
+headers = {"X-Api-Key": "896236fedc81de23f05b7044ababd27d05558962",
+           "X-Auth-Token": "72576fb6c5ad36a9baa8a7c734141a9535f37257"}     #not correct
 
 def Payment(request,pid):
     product = Product.objects.filter(id = pid).first()
